@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "Top Gun Babershop - Pengalaman Barbershop Premium",
+    "description": "Top Gun Babershop menawarkan layanan grooming premium dengan barber ahli. Rasakan potongan, cukur, dan styling terbaik dalam suasana modern dan maskulin."
+  },
+  "nav": {
+    "home": "Beranda",
+    "services": "Layanan",
+    "gallery": "Galeri",
+    "about": "Tentang",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "title": "Top Gun Babershop",
+    "subtitle": "Pengalaman Grooming Premium",
+    "description": "Tempat di mana gaya bertemu presisi. Rasakan potongan, cukur, dan layanan grooming terbaik dalam suasana modern dan maskulin.",
+    "cta": {
+      "book": "Pesan Janji Temu",
+      "services": "Lihat Layanan"
+    }
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "subtitle": "Layanan grooming premium yang disesuaikan untuk pria modern",
+    "items": {
+      "haircut": {
+        "name": "Potongan Rambut Klasik",
+        "description": "Potongan presisi dengan teknik styling modern",
+        "price": "Mulai dari $25"
+      },
+      "shave": {
+        "name": "Cukur Handuk Panas",
+        "description": "Cukur tradisional dengan pisau cukur lurus dan perawatan handuk panas",
+        "price": "Mulai dari $30"
+      },
+      "beard": {
+        "name": "Rapih & Gaya Jenggot",
+        "description": "Grooming dan styling jenggot oleh ahli",
+        "price": "Mulai dari $20"
+      },
+      "full": {
+        "name": "Layanan Lengkap",
+        "description": "Paket grooming lengkap: potongan rambut, cukur, dan styling",
+        "price": "Mulai dari $50"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Karya Kami",
+    "subtitle": "Lihat keahlian dan perhatian terhadap detail kami"
+  },
+  "about": {
+    "title": "Tentang Top Gun Babershop",
+    "subtitle": "Menciptakan keunggulan sejak hari pertama",
+    "story": {
+      "heading": "Cerita Kami",
+      "content": "Top Gun Babershop didirikan dengan visi untuk menghadirkan kembali pengalaman barbershop klasik sambil mengadopsi teknik dan gaya modern. Kami menggabungkan keahlian tradisional dengan tren kontemporer untuk memberikan layanan grooming yang luar biasa."
+    },
+    "values": {
+      "heading": "Nilai Kami",
+      "precision": {
+        "title": "Presisi",
+        "description": "Setiap potongan dilakukan dengan perhatian detail yang teliti"
+      },
+      "excellence": {
+        "title": "Keunggulan",
+        "description": "Kami berusaha untuk kesempurnaan dalam setiap layanan yang kami berikan"
+      },
+      "tradition": {
+        "title": "Tradisi",
+        "description": "Menghormati tradisi barbershop klasik sambil merangkul inovasi"
+      }
+    }
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Kunjungi kami atau pesan janji temu",
+    "form": {
+      "name": "Nama",
+      "email": "Email",
+      "phone": "Telepon",
+      "message": "Pesan",
+      "submit": "Kirim Pesan",
+      "success": "Terima kasih! Kami akan segera menghubungi Anda."
+    },
+    "info": {
+      "address": "Jl. Raya No. 123, Kota, Provinsi 12345",
+      "phone": "+62 812-3456-7890",
+      "email": "info@topgunbabershop.com",
+      "hours": {
+        "title": "Jam Buka",
+        "weekdays": "Senin - Jumat: 09:00 - 19:00",
+        "saturday": "Sabtu: 09:00 - 18:00",
+        "sunday": "Minggu: 10:00 - 16:00"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Top Gun Babershop. Hak cipta dilindungi.",
+    "links": {
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat Layanan"
+    }
+  }
+}
+
