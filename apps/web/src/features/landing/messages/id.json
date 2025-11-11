@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Top Gun Babershop - Pengalaman Barbershop Premium",
-    "description": "Top Gun Babershop menawarkan layanan grooming premium dengan barber ahli. Rasakan potongan, cukur, dan styling terbaik dalam suasana modern dan maskulin."
+    "title": "Top Gun Barber Shop - Look Sharp. Feel Top.",
+    "description": "Clean cuts, good talk, no rush. Book your seat, sit back, and walk out fresh."
   },
   "nav": {
     "home": "Beranda",
@@ -11,96 +11,98 @@
     "contact": "Kontak"
   },
   "hero": {
-    "title": "Top Gun Babershop",
-    "subtitle": "Pengalaman Grooming Premium",
-    "description": "Tempat di mana gaya bertemu presisi. Rasakan potongan, cukur, dan layanan grooming terbaik dalam suasana modern dan maskulin.",
+    "headline": "Look Sharp. Feel Top.",
+    "subtext": "Potongan bersih, obrolan asik, tanpa terburu-buru.",
+    "description": "Pesan kursimu, duduk santai, dan keluar dengan penampilan segar.",
     "cta": {
-      "book": "Pesan Janji Temu",
-      "services": "Lihat Layanan"
+      "book": "Pesan Potongan"
     }
-  },
-  "services": {
-    "title": "Layanan Kami",
-    "subtitle": "Layanan grooming premium yang disesuaikan untuk pria modern",
-    "items": {
-      "haircut": {
-        "name": "Potongan Rambut Klasik",
-        "description": "Potongan presisi dengan teknik styling modern",
-        "price": "Mulai dari $25"
-      },
-      "shave": {
-        "name": "Cukur Handuk Panas",
-        "description": "Cukur tradisional dengan pisau cukur lurus dan perawatan handuk panas",
-        "price": "Mulai dari $30"
-      },
-      "beard": {
-        "name": "Rapih & Gaya Jenggot",
-        "description": "Grooming dan styling jenggot oleh ahli",
-        "price": "Mulai dari $20"
-      },
-      "full": {
-        "name": "Layanan Lengkap",
-        "description": "Paket grooming lengkap: potongan rambut, cukur, dan styling",
-        "price": "Mulai dari $50"
-      }
-    }
-  },
-  "gallery": {
-    "title": "Karya Kami",
-    "subtitle": "Lihat keahlian dan perhatian terhadap detail kami"
   },
   "about": {
-    "title": "Tentang Top Gun Babershop",
-    "subtitle": "Menciptakan keunggulan sejak hari pertama",
-    "story": {
-      "heading": "Cerita Kami",
-      "content": "Top Gun Babershop didirikan dengan visi untuk menghadirkan kembali pengalaman barbershop klasik sambil mengadopsi teknik dan gaya modern. Kami menggabungkan keahlian tradisional dengan tren kontemporer untuk memberikan layanan grooming yang luar biasa."
-    },
-    "values": {
-      "heading": "Nilai Kami",
-      "precision": {
-        "title": "Presisi",
-        "description": "Setiap potongan dilakukan dengan perhatian detail yang teliti"
+    "heading": "Hanya barber yang mencintai apa yang kami lakukan.",
+    "body": [
+      "Kami potong, kami tertawa, kami perbaiki hari rambut buruk.",
+      "Setiap gaya, setiap wajah, setiap detail penting.",
+      "Kamu datang terlihat baik — kamu pergi terlihat lebih baik.",
+      "Buka setiap hari, 9 pagi – 9 malam, di Ruko Madison Grande K03."
+    ]
       },
-      "excellence": {
-        "title": "Keunggulan",
-        "description": "Kami berusaha untuk kesempurnaan dalam setiap layanan yang kami berikan"
+  "whyPeopleComeBack": {
+    "heading": "Tanpa drama. Hanya potongan bagus.",
+    "items": [
+      {
+        "icon": "scissors",
+        "text": "Tangan mantap, alat bersih."
       },
-      "tradition": {
-        "title": "Tradisi",
-        "description": "Menghormati tradisi barbershop klasik sambil merangkul inovasi"
+      {
+        "icon": "chair",
+        "text": "Kursi nyaman, musik enak."
+      },
+      {
+        "icon": "clock",
+        "text": "Tanpa antri — hanya dengan janji temu."
+      },
+      {
+        "icon": "message-square",
+        "text": "Kirim pesan, booking, datang, selesai."
       }
+    ],
+    "smallLine": "Sederhana karena memang harus begitu."
+      },
+  "services": {
+    "heading": "Apa yang kami lakukan",
+    "items": [
+      "Potongan rambut — klasik, fade, atau gaya kamu sendiri.",
+      "Coloring — terang, gelap, atau berani.",
+      "Rapih jenggot & cukur — bersih dan tajam.",
+      "Styling — finishing cepat sebelum kamu pergi.",
+      "Potong anak — perawatan sama, kursi lebih kecil."
+    ],
+    "cta": {
+      "book": "Pesan Layanan"
     }
   },
-  "contact": {
-    "title": "Hubungi Kami",
-    "subtitle": "Kunjungi kami atau pesan janji temu",
-    "form": {
-      "name": "Nama",
-      "email": "Email",
-      "phone": "Telepon",
-      "message": "Pesan",
-      "submit": "Kirim Pesan",
-      "success": "Terima kasih! Kami akan segera menghubungi Anda."
+  "booking": {
+    "heading": "Pilih waktu kamu, kami siap.",
+    "body": [
+      "Kami bekerja dengan janji temu — tanpa kerumunan, tanpa terburu-buru.",
+      "Kirim pesan, pilih slot, dan kami akan siapkan kursinya."
+    ],
+    "cta": {
+      "whatsapp": "Booking via WhatsApp"
     },
-    "info": {
-      "address": "Jl. Raya No. 123, Kota, Provinsi 12345",
-      "phone": "+62 812-3456-7890",
-      "email": "info@topgunbabershop.com",
-      "hours": {
-        "title": "Jam Buka",
-        "weekdays": "Senin - Jumat: 09:00 - 19:00",
-        "saturday": "Sabtu: 09:00 - 18:00",
-        "sunday": "Minggu: 10:00 - 16:00"
-      }
+    "phone": "atau telepon 0819 1919 9411"
+    },
+  "gallery": {
+    "heading": "Potongan asli. Orang asli.",
+    "body": [
+      "Scroll lihat hasil kerja kami.",
+      "Tanpa filter — hanya fade bersih, garis rapi, dan wajah bahagia."
+    ],
+    "cta": {
+      "follow": "Follow @topgun_barbershop1"
+    }
+  },
+  "testimonials": {
+    "heading": "Apa kata orang",
+    "items": [
+      "\"Fade terbaik yang pernah saya dapatkan.\"",
+      "\"Vibe bagus, barber santai.\"",
+      "\"Selalu keluar merasa segar.\""
+    ]
+  },
+  "contact": {
+    "heading": "Temukan kami",
+    "address": "Ruko Madison Grande K03, Semarang",
+    "hours": "Buka setiap hari 9 pagi – 9 malam",
+    "phone": "0819 1919 9411",
+    "cta": {
+      "directions": "Dapatkan Arah"
     }
   },
   "footer": {
-    "copyright": "© 2024 Top Gun Babershop. Hak cipta dilindungi.",
-    "links": {
-      "privacy": "Kebijakan Privasi",
-      "terms": "Syarat Layanan"
-    }
+    "copyright": "© 2025 Top Gun Barber Shop",
+    "tagline": "Look sharp, stay top."
   }
 }
 

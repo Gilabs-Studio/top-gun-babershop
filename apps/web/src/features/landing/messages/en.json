@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Top Gun Babershop - Premium Barbershop Experience",
-    "description": "Top Gun Babershop offers premium grooming services with expert barbers. Experience the finest cuts, shaves, and styling in a modern, masculine atmosphere."
+    "title": "Top Gun Barber Shop - Look Sharp. Feel Top.",
+    "description": "Clean cuts, good talk, no rush. Book your seat, sit back, and walk out fresh."
   },
   "nav": {
     "home": "Home",
@@ -11,96 +11,98 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Top Gun Babershop",
-    "subtitle": "Premium Grooming Experience",
-    "description": "Where style meets precision. Experience the finest cuts, shaves, and grooming services in a modern, masculine atmosphere.",
+    "headline": "Look Sharp. Feel Top.",
+    "subtext": "Clean cuts, good talk, no rush.",
+    "description": "Book your seat, sit back, and walk out fresh.",
     "cta": {
-      "book": "Book Appointment",
-      "services": "View Services"
+      "book": "Book a Cut"
     }
-  },
-  "services": {
-    "title": "Our Services",
-    "subtitle": "Premium grooming services tailored for the modern gentleman",
-    "items": {
-      "haircut": {
-        "name": "Classic Haircut",
-        "description": "Precision cuts with modern styling techniques",
-        "price": "Starting at $25"
-      },
-      "shave": {
-        "name": "Hot Towel Shave",
-        "description": "Traditional straight razor shave with hot towel treatment",
-        "price": "Starting at $30"
-      },
-      "beard": {
-        "name": "Beard Trim & Style",
-        "description": "Expert beard grooming and styling",
-        "price": "Starting at $20"
-      },
-      "full": {
-        "name": "Full Service",
-        "description": "Complete grooming package: haircut, shave, and styling",
-        "price": "Starting at $50"
-      }
-    }
-  },
-  "gallery": {
-    "title": "Our Work",
-    "subtitle": "See our expert craftsmanship and attention to detail"
   },
   "about": {
-    "title": "About Top Gun Babershop",
-    "subtitle": "Crafting excellence since day one",
-    "story": {
-      "heading": "Our Story",
-      "content": "Top Gun Babershop was founded with a vision to bring back the classic barbershop experience while embracing modern techniques and styles. We combine traditional craftsmanship with contemporary trends to deliver exceptional grooming services."
-    },
-    "values": {
-      "heading": "Our Values",
-      "precision": {
-        "title": "Precision",
-        "description": "Every cut is executed with meticulous attention to detail"
+    "heading": "Just barbers who love what we do.",
+    "body": [
+      "We cut, we laugh, we fix bad hair days.",
+      "Every style, every face, every detail matters.",
+      "You come in looking fine — you leave looking better.",
+      "Open every day, 9 AM – 9 PM, at Ruko Madison Grande K03."
+    ]
+  },
+  "whyPeopleComeBack": {
+    "heading": "No drama. Just good cuts.",
+    "items": [
+      {
+        "icon": "scissors",
+        "text": "Steady hands, clean tools."
       },
-      "excellence": {
-        "title": "Excellence",
-        "description": "We strive for perfection in every service we provide"
+      {
+        "icon": "chair",
+        "text": "Cool chair, good music."
       },
-      "tradition": {
-        "title": "Tradition",
-        "description": "Honoring classic barbershop traditions while embracing innovation"
+      {
+        "icon": "clock",
+        "text": "No waiting line — appointment only."
+      },
+      {
+        "icon": "message-square",
+        "text": "Text us, book, show up, done."
       }
+    ],
+    "smallLine": "It's simple because it should be."
+  },
+  "services": {
+    "heading": "What we do",
+    "items": [
+      "Haircut — classic, fade, or your own style.",
+      "Coloring — light, dark, or bold.",
+      "Beard trim & shave — clean and sharp.",
+      "Styling — quick finish before you roll out.",
+      "Kids cut — same care, smaller chair."
+    ],
+    "cta": {
+      "book": "Book a Service"
     }
   },
-  "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Visit us or book an appointment",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone",
-      "message": "Message",
-      "submit": "Send Message",
-      "success": "Thank you! We'll get back to you soon."
+  "booking": {
+    "heading": "Pick your time, we'll be ready.",
+    "body": [
+      "We work by appointment — no crowd, no rush.",
+      "Send us a message, choose your slot, and we'll keep the chair ready."
+    ],
+    "cta": {
+      "whatsapp": "Book via WhatsApp"
     },
-    "info": {
-      "address": "123 Main Street, City, State 12345",
-      "phone": "+1 (555) 123-4567",
-      "email": "info@topgunbabershop.com",
-      "hours": {
-        "title": "Opening Hours",
-        "weekdays": "Monday - Friday: 9:00 AM - 7:00 PM",
-        "saturday": "Saturday: 9:00 AM - 6:00 PM",
-        "sunday": "Sunday: 10:00 AM - 4:00 PM"
-      }
+    "phone": "or call 0819 1919 9411"
+  },
+  "gallery": {
+    "heading": "Real cuts. Real people.",
+    "body": [
+      "Scroll through the work we've done.",
+      "No filters — just clean fades, tight lines, and happy faces."
+    ],
+    "cta": {
+      "follow": "Follow @topgun_barbershop1"
+    }
+  },
+  "testimonials": {
+    "heading": "What people say",
+    "items": [
+      "\"Best fade I've had.\"",
+      "\"Good vibe, chill barbers.\"",
+      "\"Always walk out feeling fresh.\""
+    ]
+  },
+  "contact": {
+    "heading": "Find us",
+    "address": "Ruko Madison Grande K03, Semarang",
+    "hours": "Open every day 9 AM – 9 PM",
+    "phone": "0819 1919 9411",
+    "cta": {
+      "directions": "Get Directions"
     }
   },
   "footer": {
-    "copyright": "© 2024 Top Gun Babershop. All rights reserved.",
-    "links": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
-    }
+    "copyright": "© 2025 Top Gun Barber Shop",
+    "tagline": "Look sharp, stay top."
   }
 }
 
