@@ -71,24 +71,39 @@
     "smallLine": "It's simple because it should be."
   },
   "services": {
-    "heading": "What we do",
+    "heading": "What We Do",
+    "subtext": "Clean work. Steady hands.",
+    "intro": "Whether it's your first visit or your monthly cleanup — we keep it sharp.",
     "items": [
       {
         "title": "Haircut",
         "description": "Classic, fade, or your own style.",
+        "detail": "We listen, we cut, we get it right.",
+        "smallLine": "Done with focus, not hurry.",
+        "icon": "scissors",
         "image": "/image/haircut.webp"
       },
       {
         "title": "Coloring",
-        "description": "Light, dark, or bold.",
+        "description": "Light, dark, or bold — your choice.",
+        "detail": "We make it clean and natural, never messy.",
+        "smallLine": "For a change that actually fits you.",
+        "icon": "palette",
         "image": "/image/coloring.webp"
       },
       {
-        "title": "Kids cut",
+        "title": "Kids Cut",
         "description": "Same care, smaller chair.",
+        "detail": "We keep it fun, fast, and safe.",
+        "smallLine": "Every kid leaves smiling.",
+        "icon": "smile",
         "image": "/image/kidscut.webp"
       }
     ],
+    "helpSection": {
+      "heading": "Not sure what to choose?",
+      "body": "Come in, talk to us. We'll help you pick what fits your face and your mood."
+    },
     "cta": {
       "book": "Book a Service"
     }

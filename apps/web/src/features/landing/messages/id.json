@@ -69,26 +69,41 @@
       }
     ],
     "smallLine": "Sederhana karena memang harus begitu."
-      },
+  },
   "services": {
-    "heading": "Apa yang kami lakukan",
+    "heading": "Apa yang Kami Lakukan",
+    "subtext": "Kerja bersih. Tangan mantap.",
+    "intro": "Baik kunjungan pertama atau pembersihan bulanan — kami tetap tajam.",
     "items": [
       {
-        "title": "Potongan rambut",
+        "title": "Potongan Rambut",
         "description": "Klasik, fade, atau gaya kamu sendiri.",
+        "detail": "Kami dengar, kami potong, kami dapatkan hasil yang tepat.",
+        "smallLine": "Selesai dengan fokus, bukan terburu-buru.",
+        "icon": "scissors",
         "image": "/image/haircut.webp"
       },
       {
         "title": "Coloring",
-        "description": "Terang, gelap, atau berani.",
+        "description": "Terang, gelap, atau berani — pilihanmu.",
+        "detail": "Kami buat bersih dan natural, tidak pernah berantakan.",
+        "smallLine": "Untuk perubahan yang benar-benar cocok denganmu.",
+        "icon": "palette",
         "image": "/image/coloring.webp"
       },
       {
-        "title": "Potong anak",
+        "title": "Potong Anak",
         "description": "Perawatan sama, kursi lebih kecil.",
+        "detail": "Kami buat menyenangkan, cepat, dan aman.",
+        "smallLine": "Setiap anak pergi dengan senyum.",
+        "icon": "smile",
         "image": "/image/kidscut.webp"
       }
     ],
+    "helpSection": {
+      "heading": "Tidak yakin mau pilih yang mana?",
+      "body": "Datang, bicara dengan kami. Kami akan membantu kamu memilih yang cocok dengan wajah dan mood kamu."
+    },
     "cta": {
       "book": "Pesan Layanan"
     }

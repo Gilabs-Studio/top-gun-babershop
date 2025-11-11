@@ -5,6 +5,8 @@ import {
   MapPin,
   Phone,
   Music,
+  Palette,
+  Smile,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -15,5 +17,7 @@ export const iconMap: Record<string, LucideIcon> = {
   'map-pin': MapPin,
   phone: Phone,
   chair: Music, // Using Music icon for "Cool chair, good music"
+  palette: Palette,
+  smile: Smile,
 };
 
