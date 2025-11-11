@@ -75,11 +75,13 @@
   "gallery": {
     "heading": "Potongan asli. Orang asli.",
     "body": [
-      "Scroll lihat hasil kerja kami.",
-      "Tanpa filter — hanya fade bersih, garis rapi, dan wajah bahagia."
+      "Setiap potongan punya cerita. Setiap fade punya wajah.",
+      "Lihat hasil kerja kami, gaya yang kami ciptakan, dan senyum yang kami tinggalkan.",
+      "Tanpa filter, tanpa basa-basi — hanya hasil nyata dari barber yang nyata."
     ],
-    "cta": {
-      "follow": "Follow @topgun_barbershop1"
+    "social": {
+      "instagram": "Follow di Instagram",
+      "threads": "Follow di Threads"
     }
   },
   "testimonials": {
@@ -99,6 +101,10 @@
     "tagline": "Tampil tajam, tetap teratas.",
     "cta": {
       "directions": "Dapatkan Arah"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "threads": "Threads"
     }
   }
 }

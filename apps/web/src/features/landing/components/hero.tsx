@@ -36,11 +36,11 @@ export function Hero({ locale }: HeroProps) {
       const secondWords = secondPart.split(' ');
       
       const firstSpans = firstWords
-        .map((word, i) => `<span class="inline-block mr-2">${word}</span>`)
+        .map((word) => `<span class="inline-block mr-2">${word}</span>`)
         .join('');
       
       const secondSpans = secondWords
-        .map((word, i) => `<span class="inline-block mr-2">${word}</span>`)
+        .map((word) => `<span class="inline-block mr-2">${word}</span>`)
         .join('');
       
       headlineRef.current.innerHTML = `${firstSpans}<br />${secondSpans}`;
@@ -57,8 +57,8 @@ export function Hero({ locale }: HeroProps) {
           opacity: 1,
           y: 0,
           rotationX: 0,
-          duration: 1,
-          stagger: 0.08,
+          duration: 0.7,
+          stagger: 0.05,
           ease: 'power3.out',
         }
       );
@@ -75,10 +75,10 @@ export function Hero({ locale }: HeroProps) {
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.3,
           ease: 'power3.out',
         },
-        '-=0.5'
+        '-=0.4'
       );
     }
 
@@ -93,14 +93,14 @@ export function Hero({ locale }: HeroProps) {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.2,
           ease: 'power3.out',
         },
-        '-=0.3'
+        '-=0.2'
       );
     }
 
-    // Animate button
+    // Animate button - start earlier and faster
     if (buttonRef.current) {
       timeline.fromTo(
         buttonRef.current,
@@ -111,13 +111,13 @@ export function Hero({ locale }: HeroProps) {
         {
           opacity: 1,
           scale: 1,
-          duration: 0.6,
-          ease: 'back.out(1.7)',
+          duration: 0.4,
+          ease: 'back.out(1.2)',
         },
-        '-=0.2'
+        '-=0.1'
       );
     }
-  }, []);
+  }, [t.headline]);
 
   return (
     <section id="hero-section" className="relative h-screen flex items-center justify-center overflow-hidden">

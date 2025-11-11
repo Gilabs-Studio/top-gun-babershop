@@ -1,20 +1,20 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-if (typeof globalThis.window !== 'undefined') {
+if (globalThis.window !== undefined) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 interface AnimatedTextProps {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  duration?: number;
-  stagger?: number;
-  split?: boolean;
+  readonly children: React.ReactNode;
+  readonly className?: string;
+  readonly delay?: number;
+  readonly duration?: number;
+  readonly stagger?: number;
+  readonly split?: boolean;
 }
 
 export function AnimatedText({
@@ -28,6 +28,13 @@ export function AnimatedText({
   const textRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null);
 
+  // Set initial hidden state synchronously before paint to prevent flash
+  useLayoutEffect(() => {
+    if (textRef.current) {
+      gsap.set(textRef.current, { opacity: 0, y: 50 });
+    }
+  }, []);
+
   useEffect(() => {
     if (!textRef.current) return;
 
@@ -40,21 +47,40 @@ export function AnimatedText({
     }
 
     // Kill any remaining ScrollTriggers associated with this element
-    ScrollTrigger.getAll().forEach((trigger) => {
+    for (const trigger of ScrollTrigger.getAll()) {
       if (trigger.vars?.trigger === element || trigger.trigger === element) {
         trigger.kill();
       }
-    });
+    }
 
     // Use requestAnimationFrame to ensure layout is complete
     requestAnimationFrame(() => {
+      // Force refresh ScrollTrigger to recalculate positions
+      ScrollTrigger.refresh();
+      
       // Check if element is already in viewport (visible without scrolling)
       const rect = element.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-      // Also check if element is at the bottom of page (might not trigger scroll)
       const viewportHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      const isAtBottomOfPage = documentHeight <= viewportHeight || rect.bottom >= documentHeight - 100;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // More accurate viewport detection - check if element is past the 80% trigger point
+      const triggerPoint = viewportHeight * 0.8;
+      const isPastTriggerPoint = rect.top < triggerPoint;
+      const isInViewport = rect.top < viewportHeight && rect.bottom > 0;
+      const isAtBottomOfPage = documentHeight <= viewportHeight || (scrollTop + viewportHeight >= documentHeight - 50);
+      // Check if element is near bottom (within 500px for better detection)
+      const isNearBottom = rect.top < viewportHeight + 500;
+      // Check if element is already visible in viewport (more lenient check)
+      const isAlreadyVisible = rect.top < viewportHeight * 1.5 && rect.bottom > -200;
+      // Check if element is in the last 20% of the page (footer area)
+      const elementTop = rect.top + scrollTop;
+      const pageBottom = documentHeight;
+      const isInLastQuarter = elementTop > pageBottom * 0.75;
+      
+      // Determine if element should be shown immediately
+      // For elements at bottom of page, be more lenient with detection
+      const shouldShowImmediately = isInViewport || isAtBottomOfPage || isPastTriggerPoint || isNearBottom || isAlreadyVisible || isInLastQuarter;
 
       if (split && typeof children === 'string') {
         // Split text into words for word-by-word animation
@@ -67,16 +93,15 @@ export function AnimatedText({
 
         const wordSpans = element.querySelectorAll('span');
 
-        // If already in viewport or at bottom of page, show immediately without animation
-        if (isInViewport || isAtBottomOfPage) {
+        // Set initial hidden state for word spans
+        gsap.set(wordSpans, { opacity: 0, y: 50 });
+
+        // If already in viewport or past trigger point, show immediately without animation
+        if (shouldShowImmediately) {
           gsap.set(wordSpans, { opacity: 1, y: 0 });
         } else {
-          const animation = gsap.fromTo(
+          const animation = gsap.to(
             wordSpans,
-            {
-              opacity: 0,
-              y: 50,
-            },
             {
               opacity: 1,
               y: 0,
@@ -88,6 +113,8 @@ export function AnimatedText({
                 trigger: element,
                 start: 'top 80%',
                 toggleActions: 'play none none none',
+                once: true,
+                refreshPriority: -1,
               },
             }
           );
@@ -96,38 +123,75 @@ export function AnimatedText({
         }
       } else {
         // Simple fade and slide animation
-        // Reset element content if it was previously split
-        if (element.querySelector('span')) {
-          const text = typeof children === 'string' ? children : element.textContent || '';
-          element.textContent = text;
-        }
+        // Don't manipulate children - they are React elements (SVG, Links, etc.)
+        // Just animate the wrapper div
+        // Initial state is already set to hidden above
 
-        // If already in viewport or at bottom of page, show immediately without animation
-        if (isInViewport || isAtBottomOfPage) {
+        // If already in viewport or past trigger point, show immediately without animation
+        if (shouldShowImmediately) {
           gsap.set(element, { opacity: 1, y: 0 });
-        } else {
-          const animation = gsap.fromTo(
-            element,
-            {
-              opacity: 0,
-              y: 50,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration,
-              delay,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: element,
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-
-          animationRef.current = animation;
+          return;
         }
+
+        // Create animation that will trigger on scroll
+        // Use more lenient trigger point for elements at bottom of page
+        const elementTop = rect.top + scrollTop;
+        const pageBottom = documentHeight;
+        const isInLastQuarter = elementTop > pageBottom * 0.75;
+        const isNearPageBottom = rect.top > viewportHeight * 0.3 || isInLastQuarter;
+        
+        // For elements at bottom of page, use more aggressive trigger
+        const startTrigger = isNearPageBottom ? 'top bottom' : 'top 80%';
+        
+        const animation = gsap.to(
+          element,
+          {
+            opacity: 1,
+            y: 0,
+            duration,
+            delay,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: element,
+              start: startTrigger,
+              toggleActions: 'play none none none',
+              once: true,
+              refreshPriority: -1,
+              onEnter: () => {
+                // Ensure animation plays when entering viewport
+                animation?.play();
+              },
+              onEnterBack: () => {
+                // Ensure animation plays when scrolling back up
+                animation?.play();
+              },
+            },
+          }
+        );
+
+        // Check if element is already past trigger point after animation setup
+        // If so, manually trigger the animation immediately
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+          const currentRect = element.getBoundingClientRect();
+          const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const currentElementTop = currentRect.top + currentScrollTop;
+          const currentPageBottom = document.documentElement.scrollHeight;
+          
+          // More aggressive check for bottom elements
+          if (isInLastQuarter || currentElementTop > currentPageBottom * 0.75) {
+            // Element is in last quarter, show immediately
+            animation?.play();
+          } else {
+            // Check if past trigger point
+            const currentTriggerPoint = isNearPageBottom ? viewportHeight : viewportHeight * 0.8;
+            if (currentRect.top < currentTriggerPoint) {
+              animation?.play();
+            }
+          }
+        });
+
+        animationRef.current = animation;
       }
     });
 
@@ -137,11 +201,11 @@ export function AnimatedText({
         animationRef.current = null;
       }
       // Kill any remaining ScrollTriggers for this element
-      ScrollTrigger.getAll().forEach((trigger) => {
+      for (const trigger of ScrollTrigger.getAll()) {
         if (trigger.vars?.trigger === element || trigger.trigger === element) {
           trigger.kill();
         }
-      });
+      }
     };
   }, [children, delay, duration, stagger, split]);
 

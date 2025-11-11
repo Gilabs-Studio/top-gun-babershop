@@ -27,7 +27,7 @@ export function ServicesSection({ locale }: ServicesSectionProps) {
           >
             {t.heading}
           </AnimatedHeading>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
             {t.items.map((item, index) => (
               <div
                 key={`service-${index}-${item.title}`}

@@ -75,11 +75,13 @@
   "gallery": {
     "heading": "Real cuts. Real people.",
     "body": [
-      "Scroll through the work we've done.",
-      "No filters — just clean fades, tight lines, and happy faces."
+      "Every cut tells a story. Every fade has a face.",
+      "See the work we do, the styles we create, and the smiles we leave behind.",
+      "No filters, no fluff — just real results from real barbers."
     ],
-    "cta": {
-      "follow": "Follow @topgun_barbershop1"
+    "social": {
+      "instagram": "Follow on Instagram",
+      "threads": "Follow on Threads"
     }
   },
   "testimonials": {
@@ -99,6 +101,10 @@
     "tagline": "Look sharp, stay top.",
     "cta": {
       "directions": "Get Directions"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "threads": "Threads"
     }
   }
 }
