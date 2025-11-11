@@ -72,17 +72,6 @@
       "book": "Book a Service"
     }
   },
-  "booking": {
-    "heading": "Pick your time, we'll be ready.",
-    "body": [
-      "We work by appointment — no crowd, no rush.",
-      "Send us a message, choose your slot, and we'll keep the chair ready."
-    ],
-    "cta": {
-      "whatsapp": "Book via WhatsApp"
-    },
-    "phone": "or call 0819 1919 9411"
-  },
   "gallery": {
     "heading": "Real cuts. Real people.",
     "body": [
