@@ -36,6 +36,7 @@ export function AnimatedText({
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     if (!textRef.current) return;
 
     const element = textRef.current;
@@ -56,7 +57,11 @@ export function AnimatedText({
     // Use requestAnimationFrame to ensure layout is complete
     requestAnimationFrame(() => {
       // Force refresh ScrollTrigger to recalculate positions
-      ScrollTrigger.refresh();
+      try {
+        ScrollTrigger.refresh();
+      } catch (_err) {
+        // Ignore SecurityError or browser restrictions (e.g., cross-origin iframes)
+      }
       
       // Check if element is already in viewport (visible without scrolling)
       const rect = element.getBoundingClientRect();
@@ -172,7 +177,11 @@ export function AnimatedText({
         // Check if element is already past trigger point after animation setup
         // If so, manually trigger the animation immediately
         requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
+          try {
+            ScrollTrigger.refresh();
+          } catch (_err) {
+            // Ignore SecurityError
+          }
           const currentRect = element.getBoundingClientRect();
           const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
           const currentElementTop = currentRect.top + currentScrollTop;

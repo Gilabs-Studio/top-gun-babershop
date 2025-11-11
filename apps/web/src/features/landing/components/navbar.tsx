@@ -59,6 +59,7 @@ export function Navbar({ locale, isInHero = false, isVisible = true }: NavbarPro
   const pathname = usePathname();
   const messages = getMessages(locale);
   const t = messages.nav;
+  const isLandingRoute = pathname === `/${locale}`;
 
   const navItems = [
     { href: `/${locale}`, label: t.home },
@@ -90,12 +91,12 @@ export function Navbar({ locale, isInHero = false, isVisible = true }: NavbarPro
       <div
         className={cn(
           'absolute inset-0',
-          isInHero
+          isInHero && isLandingRoute
             ? 'bg-gradient-to-b from-black via-black to-transparent'
             : 'bg-black'
         )}
         style={
-          isInHero
+          isInHero && isLandingRoute
             ? {
                 background:
                   'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
