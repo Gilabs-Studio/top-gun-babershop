@@ -25,7 +25,7 @@ export function AnimatedHeading({
   duration = 1.2,
 }: AnimatedHeadingProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const animationRef = useRef<gsap.core.Timeline | null>(null);
+  const animationRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null);
 
   useEffect(() => {
     if (!headingRef.current) return;

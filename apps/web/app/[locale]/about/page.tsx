@@ -2,14 +2,20 @@ import { type Locale } from '@/i18n';
 import { getMessages } from '@/features/landing/lib/get-messages';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
+import { locales } from '@/i18n';
+import { notFound } from 'next/navigation';
 
 export default async function AboutPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  const messages = getMessages(locale);
+  const { locale: localeParam } = await params;
+  if (!locales.includes(localeParam as Locale)) {
+    notFound();
+  }
+  const locale = localeParam as Locale;
+  const messages = getMessages(locale as Locale);
   const t = messages.about;
 
   const values = [

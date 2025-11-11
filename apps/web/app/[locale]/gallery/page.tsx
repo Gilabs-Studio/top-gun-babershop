@@ -2,13 +2,19 @@ import { type Locale } from '@/i18n';
 import { getMessages } from '@/features/landing/lib/get-messages';
 import { GalleryCarousel } from '@/features/landing/components/gallery-carousel';
 import Image from 'next/image';
+import { locales } from '@/i18n';
+import { notFound } from 'next/navigation';
 
 interface GalleryPageProps {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
+  if (!locales.includes(localeParam as Locale)) {
+    notFound();
+  }
+  const locale = localeParam as Locale;
   const messages = getMessages(locale);
   const t = messages.gallery;
 
@@ -19,10 +25,10 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t.title}
+            {t.heading}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.subtitle}
+            {t.body?.[0]}
           </p>
         </div>
 

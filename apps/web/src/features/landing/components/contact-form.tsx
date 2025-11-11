@@ -22,6 +22,14 @@ export function ContactForm({ locale }: ContactFormProps) {
 
   const messages = getMessages(locale);
   const t = messages.contact;
+  const form = t.form ?? {
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone',
+    message: 'Message',
+    submit: 'Send Message',
+    success: 'Message sent!',
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +51,7 @@ export function ContactForm({ locale }: ContactFormProps) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor="name" className="text-sm font-medium mb-2 block">
-          {t.form.name}
+          {form.name}
         </label>
         <Input
           id="name"
@@ -55,7 +63,7 @@ export function ContactForm({ locale }: ContactFormProps) {
       </div>
       <div>
         <label htmlFor="email" className="text-sm font-medium mb-2 block">
-          {t.form.email}
+          {form.email}
         </label>
         <Input
           id="email"
@@ -68,7 +76,7 @@ export function ContactForm({ locale }: ContactFormProps) {
       </div>
       <div>
         <label htmlFor="phone" className="text-sm font-medium mb-2 block">
-          {t.form.phone}
+          {form.phone}
         </label>
         <Input
           id="phone"
@@ -80,7 +88,7 @@ export function ContactForm({ locale }: ContactFormProps) {
       </div>
       <div>
         <label htmlFor="message" className="text-sm font-medium mb-2 block">
-          {t.form.message}
+          {form.message}
         </label>
         <Textarea
           id="message"
@@ -92,7 +100,7 @@ export function ContactForm({ locale }: ContactFormProps) {
         />
       </div>
       <Button type="submit" className="w-full" size="lg">
-        {submitted ? t.form.success : t.form.submit}
+        {submitted ? form.success : form.submit}
       </Button>
     </form>
   );

@@ -12,13 +12,13 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
-  const messages = getMessages(locale);
+  const messages = getMessages(locale as Locale);
   return {
     title: messages.metadata.title,
     description: messages.metadata.description,
@@ -30,19 +30,20 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
+  const safeLocale = locale as Locale;
 
   return (
     <>
-      <NavbarWrapper locale={locale} />
+      <NavbarWrapper locale={safeLocale} />
       <main className="min-h-screen">{children}</main>
-      <ContactSection locale={locale} />
+      <ContactSection locale={safeLocale} />
     </>
   );
 }

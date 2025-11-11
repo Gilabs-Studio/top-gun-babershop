@@ -18,7 +18,7 @@ export default function NotFound() {
       ? (localeParam as Locale) 
       : defaultLocale;
   const messages = getMessages(locale);
-  const t = messages?.notFound ?? {
+  const t = messages.notFound ?? {
     headline: '404',
     subtext: 'Page Not Found',
     description: "Looks like this page got a bad cut. Let's get you back on track.",

@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  // Explicit Turbopack config to acknowledge Turbopack usage in Next.js 16
+  // and silence the warning when a webpack override is present.
+  turbopack: {},
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
       // Enable polling for file watching (fixes HMR on Linux/WSL)
