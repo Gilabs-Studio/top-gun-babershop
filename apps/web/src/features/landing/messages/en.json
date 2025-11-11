@@ -52,11 +52,21 @@
   "services": {
     "heading": "What we do",
     "items": [
-      "Haircut — classic, fade, or your own style.",
-      "Coloring — light, dark, or bold.",
-      "Beard trim & shave — clean and sharp.",
-      "Styling — quick finish before you roll out.",
-      "Kids cut — same care, smaller chair."
+      {
+        "title": "Haircut",
+        "description": "Classic, fade, or your own style.",
+        "image": "/image/haircut.webp"
+      },
+      {
+        "title": "Coloring",
+        "description": "Light, dark, or bold.",
+        "image": "/image/coloring.webp"
+      },
+      {
+        "title": "Kids cut",
+        "description": "Same care, smaller chair.",
+        "image": "/image/kidscut.webp"
+      }
     ],
     "cta": {
       "book": "Book a Service"

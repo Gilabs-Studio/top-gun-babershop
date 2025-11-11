@@ -7,6 +7,7 @@ import { AnimatedText } from './animated-text';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import TiltedCard from './tilted-card';
 
 interface ServicesSectionProps {
   readonly locale: Locale;
@@ -19,40 +20,59 @@ export function ServicesSection({ locale }: ServicesSectionProps) {
   return (
     <section className="min-h-[90vh] flex items-center py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl space-y-16">
+        <div className="max-w-6xl mx-auto space-y-16">
           <AnimatedHeading 
             as="h2"
-            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none"
+            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none text-center"
           >
             {t.heading}
           </AnimatedHeading>
-          <ul className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {t.items.map((item, index) => (
-              <AnimatedText
-                key={`service-${index}-${item.slice(0, 15)}`}
-                delay={index * 0.1}
-                className={cn(
-                  "font-bold",
-                  "text-xl md:text-2xl lg:text-3xl"
-                )}
+              <div
+                key={`service-${index}-${item.title}`}
+                className="space-y-4 flex flex-col items-center"
               >
-                <li>{item}</li>
-              </AnimatedText>
+                <TiltedCard
+                  imageSrc={item.image}
+                  altText={item.title}
+                  captionText={item.title}
+                  containerHeight="400px"
+                  containerWidth="100%"
+                  imageHeight="400px"
+                  imageWidth="100%"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.05}
+                  showMobileWarning={false}
+                  showTooltip={true}
+                  displayOverlayContent={false}
+                />
+                <div className="space-y-2 text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="text-lg md:text-xl text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
             ))}
-          </ul>
-          <AnimatedText delay={0.5}>
-            <Link href={`/${locale}/contact`}>
-              <Button 
-                size="lg" 
-                className={cn(
-                  "text-xl md:text-2xl px-12 py-8",
-                  "font-bold"
-                )}
-              >
-                {t.cta.book}
-              </Button>
-            </Link>
-          </AnimatedText>
+          </div>
+          <div className="flex justify-center">
+            <AnimatedText delay={0.5}>
+              <Link href={`/${locale}/contact`}>
+                <Button 
+                  size="lg" 
+                  className={cn(
+                    "text-xl md:text-2xl px-12 py-8",
+                    "font-bold"
+                  )}
+                >
+                  {t.cta.book}
+                </Button>
+              </Link>
+            </AnimatedText>
+          </div>
         </div>
       </div>
     </section>

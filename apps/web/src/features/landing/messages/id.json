@@ -52,11 +52,21 @@
   "services": {
     "heading": "Apa yang kami lakukan",
     "items": [
-      "Potongan rambut — klasik, fade, atau gaya kamu sendiri.",
-      "Coloring — terang, gelap, atau berani.",
-      "Rapih jenggot & cukur — bersih dan tajam.",
-      "Styling — finishing cepat sebelum kamu pergi.",
-      "Potong anak — perawatan sama, kursi lebih kecil."
+      {
+        "title": "Potongan rambut",
+        "description": "Klasik, fade, atau gaya kamu sendiri.",
+        "image": "/image/haircut.webp"
+      },
+      {
+        "title": "Coloring",
+        "description": "Terang, gelap, atau berani.",
+        "image": "/image/coloring.webp"
+      },
+      {
+        "title": "Potong anak",
+        "description": "Perawatan sama, kursi lebih kecil.",
+        "image": "/image/kidscut.webp"
+      }
     ],
     "cta": {
       "book": "Pesan Layanan"
