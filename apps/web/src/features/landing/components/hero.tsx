@@ -120,7 +120,7 @@ export function Hero({ locale }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero-section" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="/image.webp"

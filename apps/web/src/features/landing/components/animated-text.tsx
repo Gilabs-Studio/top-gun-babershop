@@ -26,22 +26,38 @@ export function AnimatedText({
   split = false,
 }: AnimatedTextProps) {
   const textRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<gsap.core.Tween | gsap.core.Timeline | null>(null);
 
   useEffect(() => {
     if (!textRef.current) return;
 
     const element = textRef.current;
 
+    // Cleanup previous animations (this will also cleanup associated ScrollTriggers)
+    if (animationRef.current) {
+      animationRef.current.kill();
+      animationRef.current = null;
+    }
+
+    // Kill any remaining ScrollTriggers associated with this element
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.vars?.trigger === element || trigger.trigger === element) {
+        trigger.kill();
+      }
+    });
+
     if (split && typeof children === 'string') {
       // Split text into words for word-by-word animation
-      const words = children.split(' ');
+      const words = children.split(' ').filter(Boolean);
+      if (words.length === 0) return;
+
       element.innerHTML = words
         .map((word) => `<span class="inline-block">${word}</span>`)
         .join(' ');
 
       const wordSpans = element.querySelectorAll('span');
 
-      gsap.fromTo(
+      const animation = gsap.fromTo(
         wordSpans,
         {
           opacity: 0,
@@ -61,9 +77,17 @@ export function AnimatedText({
           },
         }
       );
+
+      animationRef.current = animation;
     } else {
       // Simple fade and slide animation
-      gsap.fromTo(
+      // Reset element content if it was previously split
+      if (element.querySelector('span')) {
+        const text = typeof children === 'string' ? children : element.textContent || '';
+        element.textContent = text;
+      }
+
+      const animation = gsap.fromTo(
         element,
         {
           opacity: 0,
@@ -82,14 +106,21 @@ export function AnimatedText({
           },
         }
       );
+
+      animationRef.current = animation;
     }
 
     return () => {
-      for (const trigger of ScrollTrigger.getAll()) {
-        if (trigger.vars.trigger === element) {
+      if (animationRef.current) {
+        animationRef.current.kill();
+        animationRef.current = null;
+      }
+      // Kill any remaining ScrollTriggers for this element
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars?.trigger === element || trigger.trigger === element) {
           trigger.kill();
         }
-      }
+      });
     };
   }, [children, delay, duration, stagger, split]);
 

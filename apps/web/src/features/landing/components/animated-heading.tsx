@@ -25,13 +25,31 @@ export function AnimatedHeading({
   duration = 1.2,
 }: AnimatedHeadingProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const animationRef = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
     if (!headingRef.current) return;
 
     const element = headingRef.current;
-    const text = element.textContent || '';
-    const words = text.split(' ');
+
+    // Cleanup previous animations (this will also cleanup associated ScrollTriggers)
+    if (animationRef.current) {
+      animationRef.current.kill();
+      animationRef.current = null;
+    }
+
+    // Kill any remaining ScrollTriggers associated with this element
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.vars?.trigger === element || trigger.trigger === element) {
+        trigger.kill();
+      }
+    });
+
+    // Reset element to original content
+    const text = typeof children === 'string' ? children : element.textContent || '';
+    const words = text.split(' ').filter(Boolean);
+
+    if (words.length === 0) return;
 
     // Split into spans
     element.innerHTML = words
@@ -40,7 +58,8 @@ export function AnimatedHeading({
 
     const wordSpans = element.querySelectorAll('span');
 
-    gsap.fromTo(
+    // Create animation with ScrollTrigger
+    const timeline = gsap.fromTo(
       wordSpans,
       {
         opacity: 0,
@@ -63,12 +82,19 @@ export function AnimatedHeading({
       }
     );
 
+    animationRef.current = timeline;
+
     return () => {
-      for (const trigger of ScrollTrigger.getAll()) {
-        if (trigger.vars.trigger === element) {
+      if (animationRef.current) {
+        animationRef.current.kill();
+        animationRef.current = null;
+      }
+      // Kill any remaining ScrollTriggers for this element
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars?.trigger === element || trigger.trigger === element) {
           trigger.kill();
         }
-      }
+      });
     };
   }, [children, delay, duration]);
 
