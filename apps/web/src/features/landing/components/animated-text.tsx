@@ -46,69 +46,90 @@ export function AnimatedText({
       }
     });
 
-    if (split && typeof children === 'string') {
-      // Split text into words for word-by-word animation
-      const words = children.split(' ').filter(Boolean);
-      if (words.length === 0) return;
+    // Use requestAnimationFrame to ensure layout is complete
+    requestAnimationFrame(() => {
+      // Check if element is already in viewport (visible without scrolling)
+      const rect = element.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      // Also check if element is at the bottom of page (might not trigger scroll)
+      const viewportHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isAtBottomOfPage = documentHeight <= viewportHeight || rect.bottom >= documentHeight - 100;
 
-      element.innerHTML = words
-        .map((word) => `<span class="inline-block">${word}</span>`)
-        .join(' ');
+      if (split && typeof children === 'string') {
+        // Split text into words for word-by-word animation
+        const words = children.split(' ').filter(Boolean);
+        if (words.length === 0) return;
 
-      const wordSpans = element.querySelectorAll('span');
+        element.innerHTML = words
+          .map((word) => `<span class="inline-block">${word}</span>`)
+          .join(' ');
 
-      const animation = gsap.fromTo(
-        wordSpans,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration,
-          delay,
-          stagger,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
+        const wordSpans = element.querySelectorAll('span');
+
+        // If already in viewport or at bottom of page, show immediately without animation
+        if (isInViewport || isAtBottomOfPage) {
+          gsap.set(wordSpans, { opacity: 1, y: 0 });
+        } else {
+          const animation = gsap.fromTo(
+            wordSpans,
+            {
+              opacity: 0,
+              y: 50,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration,
+              delay,
+              stagger,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+
+          animationRef.current = animation;
         }
-      );
+      } else {
+        // Simple fade and slide animation
+        // Reset element content if it was previously split
+        if (element.querySelector('span')) {
+          const text = typeof children === 'string' ? children : element.textContent || '';
+          element.textContent = text;
+        }
 
-      animationRef.current = animation;
-    } else {
-      // Simple fade and slide animation
-      // Reset element content if it was previously split
-      if (element.querySelector('span')) {
-        const text = typeof children === 'string' ? children : element.textContent || '';
-        element.textContent = text;
+        // If already in viewport or at bottom of page, show immediately without animation
+        if (isInViewport || isAtBottomOfPage) {
+          gsap.set(element, { opacity: 1, y: 0 });
+        } else {
+          const animation = gsap.fromTo(
+            element,
+            {
+              opacity: 0,
+              y: 50,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration,
+              delay,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+
+          animationRef.current = animation;
+        }
       }
-
-      const animation = gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration,
-          delay,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-
-      animationRef.current = animation;
-    }
+    });
 
     return () => {
       if (animationRef.current) {

@@ -95,13 +95,11 @@
     "address": "Ruko Madison Grande K03, Semarang",
     "hours": "Open every day 9 AM – 9 PM",
     "phone": "0819 1919 9411",
+    "copyright": "© 2025 Top Gun Barber Shop",
+    "tagline": "Look sharp, stay top.",
     "cta": {
       "directions": "Get Directions"
     }
-  },
-  "footer": {
-    "copyright": "© 2025 Top Gun Barber Shop",
-    "tagline": "Look sharp, stay top."
   }
 }
 
