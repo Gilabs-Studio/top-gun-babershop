@@ -158,8 +158,8 @@ export function Hero({ locale }: HeroProps) {
               <Button 
                 size="lg" 
                 className={cn(
-                  "text-xl md:text-2xl px-12 py-8",
-                  "bg-primary hover:bg-primary/90",
+                  "text-xl md:text-2xl px-12 py-8 text-black hover:text-white hover:border",
+                  "bg-white hover:bg-black/0",
                   "shadow-lg hover:shadow-xl",
                   "transition-all duration-300",
                   "font-bold"
