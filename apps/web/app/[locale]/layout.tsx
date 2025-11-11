@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
-import { Navbar } from '@/features/landing/components/navbar';
+import { NavbarWrapper } from '@/features/landing/components/navbar-wrapper';
 import { Footer } from '@/features/landing/components/footer';
 import { getMessages } from '@/features/landing/lib/get-messages';
 
@@ -40,7 +40,7 @@ export default async function LocaleLayout({
 
   return (
     <>
-      <Navbar locale={locale} />
+      <NavbarWrapper locale={locale} />
       <main className="min-h-screen">{children}</main>
       <Footer locale={locale} />
     </>
