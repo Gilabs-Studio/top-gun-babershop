@@ -25,7 +25,28 @@
       "Every style, every face, every detail matters.",
       "You come in looking fine — you leave looking better.",
       "Open every day, 9 AM – 9 PM, at Ruko Madison Grande K03."
-    ]
+    ],
+    "title": "About Top Gun Barber Shop",
+    "subtitle": "Where precision meets tradition, and every cut tells a story.",
+    "story": {
+      "heading": "Our Story",
+      "content": "Top Gun Barber Shop was born from a simple belief: every man deserves a great cut. We're not just barbers—we're craftsmen who take pride in our work. From classic cuts to modern fades, we bring precision, excellence, and a touch of tradition to every chair. Located at Ruko Madison Grande K03, we've been serving Semarang with quality cuts and good vibes since day one."
+    },
+    "values": {
+      "heading": "Our Values",
+      "precision": {
+        "title": "Precision",
+        "description": "Every cut is executed with meticulous attention to detail. We measure, we refine, we perfect—because your look matters."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We don't settle for good enough. Every service, every interaction, every moment is crafted to exceed expectations."
+      },
+      "tradition": {
+        "title": "Tradition",
+        "description": "Rooted in classic barbering techniques, we honor the craft while embracing modern styles and trends."
+      }
+    }
   },
   "whyPeopleComeBack": {
     "heading": "No drama. Just good cuts.",

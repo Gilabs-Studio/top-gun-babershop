@@ -25,8 +25,29 @@
       "Setiap gaya, setiap wajah, setiap detail penting.",
       "Kamu datang terlihat baik — kamu pergi terlihat lebih baik.",
       "Buka setiap hari, 9 pagi – 9 malam, di Ruko Madison Grande K03."
-    ]
+    ],
+    "title": "Tentang Top Gun Barber Shop",
+    "subtitle": "Di mana presisi bertemu tradisi, dan setiap potongan bercerita.",
+    "story": {
+      "heading": "Cerita Kami",
+      "content": "Top Gun Barber Shop lahir dari keyakinan sederhana: setiap pria pantas mendapat potongan yang bagus. Kami bukan hanya barber—kami adalah pengrajin yang bangga dengan pekerjaan kami. Dari potongan klasik hingga fade modern, kami membawa presisi, keunggulan, dan sentuhan tradisi ke setiap kursi. Berlokasi di Ruko Madison Grande K03, kami telah melayani Semarang dengan potongan berkualitas dan vibe yang baik sejak hari pertama."
+    },
+    "values": {
+      "heading": "Nilai Kami",
+      "precision": {
+        "title": "Presisi",
+        "description": "Setiap potongan dieksekusi dengan perhatian detail yang teliti. Kami mengukur, kami menyempurnakan, kami memoles—karena penampilanmu penting."
       },
+      "excellence": {
+        "title": "Keunggulan",
+        "description": "Kami tidak puas dengan 'cukup baik'. Setiap layanan, setiap interaksi, setiap momen dirancang untuk melampaui harapan."
+      },
+      "tradition": {
+        "title": "Tradisi",
+        "description": "Berakar pada teknik barbering klasik, kami menghormati kerajinan sambil merangkul gaya dan tren modern."
+      }
+    }
+  },
   "whyPeopleComeBack": {
     "heading": "Tanpa drama. Hanya potongan bagus.",
     "items": [

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
 import { NavbarWrapper } from '@/features/landing/components/navbar-wrapper';
 import { getMessages } from '@/features/landing/lib/get-messages';
+import { ContactSection } from '@/features/landing/components/contact-section';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -41,6 +42,7 @@ export default async function LocaleLayout({
     <>
       <NavbarWrapper locale={locale} />
       <main className="min-h-screen">{children}</main>
+      <ContactSection locale={locale} />
     </>
   );
 }
