@@ -10,6 +10,11 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
 });
+const carnevaleeFreakshow = localFont({
+  src: "./fonts/Carnevalee Freakshow.ttf",
+  variable: "--font-carnevalee-freakshow",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Top Gun Babershop",
@@ -23,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${carnevaleeFreakshow.variable}`}>
         {children}
       </body>
     </html>

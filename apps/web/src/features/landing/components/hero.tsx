@@ -36,11 +36,11 @@ export function Hero({ locale }: HeroProps) {
       const secondWords = secondPart.split(' ');
       
       const firstSpans = firstWords
-        .map((word, i) => `<span class="inline-block">${word}${i < firstWords.length - 1 ? '&nbsp;' : ''}</span>`)
+        .map((word, i) => `<span class="inline-block mr-2">${word}</span>`)
         .join('');
       
       const secondSpans = secondWords
-        .map((word, i) => `<span class="inline-block">${word}${i < secondWords.length - 1 ? '&nbsp;' : ''}</span>`)
+        .map((word, i) => `<span class="inline-block mr-2">${word}</span>`)
         .join('');
       
       headlineRef.current.innerHTML = `${firstSpans}<br />${secondSpans}`;
@@ -136,7 +136,7 @@ export function Hero({ locale }: HeroProps) {
         <div className="space-y-8 max-w-5xl">
           <h1 
             ref={headlineRef}
-            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none will-change-transform"
+            className="text-6xl md:text-8xl lg:text-9xl font-black leading-none will-change-transform"
             dangerouslySetInnerHTML={{
               __html: t.headline.replace('. ', '.<br />')
             }}

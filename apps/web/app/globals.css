@@ -61,4 +61,20 @@ body {
   :where(.border-input) {
     border-color: var(--color-input);
   }
+
+  /* Font utility for headline titles */
+  .font-headline {
+    font-family: var(--font-carnevalee-freakshow), sans-serif;
+  }
+}
+
+/* Apply Carnevalee Freakshow to all headline elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-carnevalee-freakshow), sans-serif;
+  letter-spacing: 0.02em;
 }
