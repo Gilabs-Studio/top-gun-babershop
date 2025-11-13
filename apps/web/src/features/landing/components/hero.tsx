@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { getMessages } from '../lib/get-messages';
 import { cn } from '@/lib/utils';
 import gsap from 'gsap';
+import { useParallax } from '../hooks/useParallax';
 
 interface HeroProps {
   readonly locale: Locale;
@@ -20,6 +21,15 @@ export function Hero({ locale }: HeroProps) {
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  // Apply parallax effect to hero image
+  useParallax(imageRef, {
+    scrollSpeed: 0.5,
+    mouseIntensity: 15,
+    enableScroll: true,
+    enableMouse: true,
+  });
 
   useEffect(() => {
     const timeline = gsap.timeline();
@@ -121,7 +131,7 @@ export function Hero({ locale }: HeroProps) {
 
   return (
     <section id="hero-section" className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div ref={imageRef} className="absolute inset-0 z-0 will-change-transform" style={{ scale: '1.1' }}>
         <Image
           src="/image.webp"
           alt="Top Gun Barber Shop"
